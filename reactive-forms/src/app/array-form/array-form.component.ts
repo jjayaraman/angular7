@@ -7,17 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./array-form.component.css']
 })
 export class ArrayFormComponent implements OnInit {
-  constructor(private fb: FormBuilder) {}
+
+  constructor(private fb: FormBuilder) { }
 
   form: FormGroup;
 
   ngOnInit() {
+
     this.form = this.fb.group({
-      name: ['jay', Validators.required],
-      address: this.fb.array([])
+      name: ['', Validators.required],
+      service: this.fb.array([])
     });
 
-    console.log('name : ' + this.fc['name']);
+    console.log('name : ' + this.fc['name'].value);
   }
 
   get fc() {
@@ -28,17 +30,21 @@ export class ArrayFormComponent implements OnInit {
     return this.form.value;
   }
 
-  get homeAddress() {
-    return this.fc.controls['address'] as FormArray;
+  get serviceForms() {
+    return this.form.get('service') as FormArray;
   }
 
   add() {
-    const address = this.fb.group({
-      line1: '',
-      city: '',
-      country: ''
+    const service = this.fb.group({
+      country: '',
+      service: ''
     });
 
-    this.homeAddress.push(address);
+    this.serviceForms.push(service);
+  }
+
+
+  deleteService(i) {
+    this.serviceForms.removeAt(i);
   }
 }

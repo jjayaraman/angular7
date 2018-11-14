@@ -1,35 +1,26 @@
 <form [formGroup]="form">
-  <h3>Array Form</h3>
-  Form : {{ form.value | json}}
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input
-      required
-      class="form-control"
-      id="name"
-      type="text"
-      formControlName="name"
-    />
-    <div *ngIf="!fc['name'].valid && fc['name'].touched">
-      <div class="alert alert-danger">Name is Required</div>
-    </div>
-  </div>
+    <h3>Array Form</h3>
+    Form : {{ form.value | json}}
 
-  <div [formGroupName]="fc['address']">
     <div class="form-group">
-      <label for="line1">Address Line1 </label>
-      <input
-        required
-        class="form-control"
-        id="line1"
-        type="text"
-        formControlName="line1"
-      />
-      <div *ngIf="fc['line1'].invalid && fc['line1'].touched">
-        <div class="alert alert-danger">Name is Required</div>
-      </div>
-      <button type='button' (click)='add()' >Add</button>
-
+        <label for="name">Name</label>
+        <input required type="text" id="name" class="form-control" formControlName="name" />
+        <div class="alert alert-danger" *ngIf="fc['name'].touched && !fc['name'].valid">
+            Name is required.
+        </div>
     </div>
-  </div>
+
+    <br />
+    <button type='button' class="btn btn-primary" (click)='add()'>Add Services</button>
+
+    <div formArrayName='service'>
+        <div class='row' *ngFor="let line of serviceForms.controls; let i=index" [formGroupName]="i">
+            <input class='form-control col-md-3' formControlName="country" />
+            <input class='form-control col-md-3' formControlName="service" />
+            <button class='btn btn-primary col-md-1' (click)="deleteService(i)">Delete</button>
+        </div>
+    </div>
+    <br />
+
+
 </form>

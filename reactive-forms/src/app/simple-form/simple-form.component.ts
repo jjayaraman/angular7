@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./simple-form.component.css']
 })
 export class SimpleFormComponent implements OnInit {
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
   form: FormGroup;
 
@@ -26,11 +26,8 @@ export class SimpleFormComponent implements OnInit {
     });
   }
 
-  get name() {
-    return this.form.get('name');
-  }
 
-  get dept() {
-    return this.form.get('dept');
+  get fc() {
+    return this.form.controls;
   }
 }
