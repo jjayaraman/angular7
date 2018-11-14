@@ -1,0 +1,33 @@
+<form [formGroup]="form">
+  <h3>Nested Form</h3>
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input
+      required
+      class="form-control"
+      id="name"
+      type="text"
+      formControlName="name"
+    />
+    <div *ngIf="name.invalid && name.touched">
+      <div class="alert alert-danger">Name is Required</div>
+    </div>
+  </div>
+
+  <div [formGroupName]="address">
+    <div class="form-group">
+      <label for="line1">Address</label>
+      <input
+        required
+        class="form-control"
+        id="line1"
+        type="text"
+        formControlName="line1"
+      />
+      <div *ngIf="name.invalid && name.touched">
+        <div class="alert alert-danger">Name is Required</div>
+      </div>
+    </div>
+  </div>
+</form>

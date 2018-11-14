@@ -1,12 +1,25 @@
 <div class="container">
-    <h3><a [routerLink]="['/']" routerLinkActive="router-link-active">Angular - Reactive Forms - demo</a></h3>
-    <br />
+  <h3>
+    <a [routerLink]="['/']" routerLinkActive="router-link-active"
+      >Angular - Reactive Forms - demo</a
+    >
+  </h3>
+  <br />
 
-    <a [routerLink]="['/simple']" routerLinkActive="router-link-active">Simple </a>
+  <a [routerLink]="['/simple']" routerLinkActive="router-link-active"
+    >Simple Form</a
+  ><br />
+  <a [routerLink]="['/nested']" routerLinkActive="router-link-active"
+    >Nested Form</a
+  ><br />
+  <a [routerLink]="['/array']" routerLinkActive="router-link-active"
+    >Array Form </a
+  ><br />
+  <a [routerLink]="['/dyna']" routerLinkActive="router-link-active"
+    >Dyna Form </a
+  ><br />
 
-
-    <br />
-    <br />
-    <router-outlet></router-outlet>
-
+  <br />
+  <br />
+  <router-outlet></router-outlet>
 </div>

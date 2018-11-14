@@ -7,19 +7,23 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./simple-form.component.css']
 })
 export class SimpleFormComponent implements OnInit {
-
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {}
 
   form: FormGroup;
 
   ngOnInit() {
-
     this.form = this.fb.group({
-      'name': ['', Validators.required],
-      'dept': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(5)]]
+      name: ['', Validators.required],
+      dept: [
+        '',
+        [Validators.required, Validators.minLength(3), Validators.maxLength(5)]
+      ]
     });
 
-    this.form.statusChanges.subscribe(data => console.log(data));
+    this.form.statusChanges.subscribe(data => console.log('status chane : ' + JSON.stringify(data)));
+    this.form.valueChanges.subscribe(data => {
+      console.log('value changes : ' + JSON.stringify(data));
+    });
   }
 
   get name() {
