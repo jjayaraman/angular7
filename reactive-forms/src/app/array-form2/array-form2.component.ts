@@ -15,8 +15,8 @@ export class ArrayForm2Component implements OnInit {
   ngOnInit() {
 
     this.form = this.fb.group({
-      country: ['', Validators.required],
-      service: ['', Validators.required],
+      country1: ['', Validators.required],
+      service1: ['', Validators.required],
       services: this.fb.array([])
     });
 
@@ -36,8 +36,8 @@ export class ArrayForm2Component implements OnInit {
 
   add() {
     const service = this.fb.group({
-      country: this.form.get('country'),
-      service: this.form.get('service')
+      country: this.form.get('country1'),
+      service: this.form.get('service1')
     });
 
     this.serviceForms.push(service);

@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+
+.center {
+    margin: auto;
+    width: 80%;
+    border: 1px solid green;
+    padding: 1px;
+}
