@@ -2,11 +2,11 @@ import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-array-form',
-  templateUrl: './array-form.component.html',
-  styleUrls: ['./array-form.component.css']
+  selector: 'app-array-form2',
+  templateUrl: './array-form2.component.html',
+  styleUrls: ['./array-form2.component.css']
 })
-export class ArrayFormComponent implements OnInit {
+export class ArrayForm2Component implements OnInit {
 
   constructor(private fb: FormBuilder) { }
 
@@ -15,11 +15,11 @@ export class ArrayFormComponent implements OnInit {
   ngOnInit() {
 
     this.form = this.fb.group({
-      name: ['', Validators.required],
-      service: this.fb.array([])
+      country: ['', Validators.required],
+      service: ['', Validators.required],
+      services: this.fb.array([])
     });
 
-    console.log('name : ' + this.fc['name'].value);
   }
 
   get fc() {
@@ -31,13 +31,13 @@ export class ArrayFormComponent implements OnInit {
   }
 
   get serviceForms() {
-    return this.form.get('service') as FormArray;
+    return this.form.get('services') as FormArray;
   }
 
   add() {
     const service = this.fb.group({
-      country: '',
-      service: ''
+      country: this.form.get('country'),
+      service: this.form.get('service')
     });
 
     this.serviceForms.push(service);

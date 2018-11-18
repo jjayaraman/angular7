@@ -1,19 +1,23 @@
 <form [formGroup]="form">
-    <h3>Array Form</h3>
+    <h3>Array Form 2</h3>
     Form : {{ form.value | json}}
 
     <div class="form-group">
-        <label for="name">Name</label>
-        <input required type="text" id="name" class="form-control" formControlName="name" />
-        <div class="alert alert-danger" *ngIf="fc['name'].touched && !fc['name'].valid">
-            Name is required.
-        </div>
+        <label for="country">Country</label>
+        <input required type="text" id="country" class="form-control" formControlName="country" />
+
+    </div>
+
+    <div class="form-group">
+        <label for="service">Serivce</label>
+        <input required type="text" id="service" class="form-control" formControlName="service" />
     </div>
 
     <br />
     <button type='button' class="btn btn-primary" (click)='add()'>Add Services</button>
+    <br />
 
-    <div formArrayName='service'>
+    <div formArrayName='services'>
         <div class='row' *ngFor="let line of serviceForms.controls; let i=index" [formGroupName]="i">
             <input class='form-control col-md-3' formControlName="country" />
             <input class='form-control col-md-3' formControlName="service" />

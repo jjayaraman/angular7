@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DynaFormComponent } from './dyna-form/dyna-form.component';
 import { ArrayFormComponent } from './array-form/array-form.component';
 import { NestedFormComponent } from './nested-form/nested-form.component';
+import { ArrayForm2Component } from './array-form2/array-form2.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NestedFormComponent } from './nested-form/nested-form.component';
     SimpleFormComponent,
     DynaFormComponent,
     ArrayFormComponent,
-    NestedFormComponent
+    NestedFormComponent,
+    ArrayForm2Component
   ],
   imports: [
     BrowserModule,
