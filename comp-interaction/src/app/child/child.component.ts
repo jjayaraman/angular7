@@ -7,16 +7,22 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ChildComponent implements OnInit {
 
-  message;
-    
-  @Input() name; 
 
+  @Input() fromParentMsg:string;
+  fromChildMsg:string = 'default child message';
+  count:number = 1;
   constructor() { }
 
- 
-  ngOnInit() {
-    this.message = name;
 
+  ngOnInit() {
+    console.log('child oninit...', this.fromParentMsg);
   }
 
+  clear() {
+    this.fromParentMsg = '';
+  }
+
+  childClicked() {
+    this.fromChildMsg = '@ViewChild() from child ' ,this.count++;
+  }
 }

@@ -2,9 +2,9 @@
     <h4>Parent component</h4>
 
     <div class='center'>
-        <app-child [parentContent]='name'> </app-child>
+        <app-child [fromParentMsg]='fromParentMsg'> </app-child>
     </div>
 
-    <button class='btn btn-primary'>Parent click</button>
+    <button class='btn btn-primary' (click)="parentClick()">Parent click</button> <br/> Message from child: {{child.fromChildMsg}}
 
 </div>

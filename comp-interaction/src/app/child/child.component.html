@@ -1,6 +1,7 @@
 <div style='background-color: cornflowerblue'>
     <h4>Child component</h4>
 
-
-    <button class='btn btn-primary'>Child click</button>
+    fromParentMsg : {{fromParentMsg}} <br/>
+    <button class='btn btn-primary' (click)="childClicked()">Child click</button>
+    <button class='btn btn-primary' (click)="clear()">Clear</button>
 </div>
