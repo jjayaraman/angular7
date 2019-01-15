@@ -2,6 +2,7 @@
     <h4>Child component</h4>
 
     fromParentMsg : {{fromParentMsg}} <br/>
-    <button class='btn btn-primary' (click)="childClicked()">Child click</button>
+    <button class='btn btn-primary' (click)="childClicked()">Send using @ViewChild()</button>
+    <button class='btn btn-primary' (click)="sendChildMsgtoParent()">Send using @Output()</button>
     <button class='btn btn-primary' (click)="clear()">Clear</button>
 </div>

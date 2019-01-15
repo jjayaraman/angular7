@@ -1,10 +1,13 @@
-<div style='background-color:darkred'>
+<div style='background-color:skyblue'>
     <h4>Parent component</h4>
 
     <div class='center'>
         <app-child [fromParentMsg]='fromParentMsg'> </app-child>
+        <br>
+        <app-child (childMessageEvent)='receiveMessageEvent($event)'></app-child>>
     </div>
 
-    <button class='btn btn-primary' (click)="parentClick()">Parent click</button> <br/> Message from child: {{child.fromChildMsg}}
-
+    <button class='btn btn-primary' (click)="parentClick()">Parent click</button>
+    <br> Message from child: {{child.fromChildMsg}}
+    <br> Message from child: {{msg2}}
 </div>
