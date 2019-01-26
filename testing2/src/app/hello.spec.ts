@@ -1,8 +1,18 @@
-describe('hello test', () => {
+import { AppComponent } from './app.component';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { async } from 'q';
+
+describe('hello test', async() => {
+
+  let fixture: ComponentFixture<AppComponent>;
+
+  fixture = TestBed.createComponent(AppComponent);
+
   let count = 1;
 
   beforeAll(() => {
     console.log('beforeAll...');
+    expect(fixture.isStable()).toBeTruthy();
   });
 
   beforeEach(() => {
