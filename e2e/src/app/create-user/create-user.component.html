@@ -1,13 +1,58 @@
-<h4>Create User</h4>
+<form>
+  <h4>Create User</h4>
+  <br />
 
-<div class="form-row">
-  <label class="col-3" for="firstName">First name</label>
-  <input
-    type="text"
-    class="col-6 form-control"
-    name="firstName"
-    id="firstName"
-  />
-</div>
+  <div class="form-gr"></div>
+  <div class="form-row">
+    <label class="col-3" for="firstName">First name</label>
+    <input
+      type="text"
+      class="col-6 form-control"
+      name="firstName"
+      id="firstName"
+      [(ngModel)]="model.firstName"
+    />
+  </div>
+  <div class="form-row">
+    <label class="col-md-3" for="lastName">Last name</label>
+    <input
+      type="text"
+      class="col-md-6 form-control"
+      name="lastName"
+      id="lastName"
+      [(ngModel)]="model.lastName"
+    />
+  </div>
+  <div class="form-row">
+    <label class="col-md-3" for="email">Email</label>
+    <input
+      type="text"
+      class="col-md-6 form-control"
+      name="lastName"
+      id="lastName"
+      [(ngModel)]="model.email"
+    />
+  </div>
 
-<button class="btn btn-primary">Save</button>
+  <br />
+  <button class="btn btn-primary" (click)="save()">Save</button>
+  <br><br>
+
+  <h4>Users</h4>
+  <br />
+  <table class="table">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+
+    <tr *ngFor="let user of users">
+      <td>{{ user.firstName }}</td>
+      <td>{{ user.lastName }}</td>
+      <td>{{ user.email }}</td>
+    </tr>
+  </table>
+</form>

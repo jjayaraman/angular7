@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-create-user',
@@ -6,16 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-user.component.css']
 })
 export class CreateUserComponent implements OnInit {
+  model: User = new User();
+  users: Array<User> = [];
 
-  firstName:string;
-  lastName:string;
-  email:string;
-  city:string;
-  country:string;
+  constructor() {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  save() {
+    this.users.push(this.model);
   }
-
 }
