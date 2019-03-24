@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CreateUserComponent } from './create-user.component';
+import { FormsModule } from '@angular/forms';
 
 describe('CreateUserComponent', () => {
   let component: CreateUserComponent;
@@ -8,9 +9,9 @@ describe('CreateUserComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateUserComponent ]
-    })
-    .compileComponents();
+      imports: [FormsModule],
+      declarations: [CreateUserComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -23,12 +24,8 @@ describe('CreateUserComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have text', ()=>{
-    let app = fixture.debugElement.componentInstance;
-
-    console.log('xxx',app);
-
-    //expect(app.title).toContain('create','Not found');
-  })
-
+  it('should have text', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h4').textContent).toContain('User');
+  });
 });
