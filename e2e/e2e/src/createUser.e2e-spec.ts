@@ -18,9 +18,13 @@ describe("create user test suite", () => {
   it("create user enter data", () => {
     page.navigateTo();
     page.createUser();
-    page.createUser();
 
-    const users = page.getUsers();
+    let users = page.getUsers();
+    expect(users.count()).toBe(1);
+    expect(users.get(0).getText()).toContain('first name');
+
+    page.createUser();
+    users = page.getUsers();
     expect(users.count()).toBe(2);
 
   });

@@ -14,6 +14,11 @@ export class CreateUserPage {
     browser.sleep(2000)
   }
 
+  checkUserCreated(){
+    const users = this.getUsers();
+    expect(users.get(0).getText()).toBe('first name');
+  }
+
   getUsers() {
     return element.all(by.id('users'));
   }
