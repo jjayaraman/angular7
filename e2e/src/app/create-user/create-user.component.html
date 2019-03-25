@@ -28,15 +28,15 @@
     <input
       type="text"
       class="col-md-6 form-control"
-      name="lastName"
-      id="lastName"
+      name="email"
+      id="email"
       [(ngModel)]="model.email"
     />
   </div>
 
   <br />
-  <button class="btn btn-primary" (click)="save()">Save</button>
-  <br><br>
+  <button id="saveButton" class="btn btn-primary" (click)="save()">Save</button>
+  <br /><br />
 
   <h4>Users</h4>
   <br />
@@ -49,7 +49,7 @@
       </tr>
     </thead>
 
-    <tr *ngFor="let user of users">
+    <tr *ngFor="let user of users" id='users'>
       <td>{{ user.firstName }}</td>
       <td>{{ user.lastName }}</td>
       <td>{{ user.email }}</td>
